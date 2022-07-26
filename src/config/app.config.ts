@@ -5,6 +5,8 @@ export default {
   port: process.env.PORT || 3535,
   env: process.env.NODE_ENV || 'development',
   corsOrigin: process.env.CORS_ORIGIN || '',
+  dbtype: process.env.DB_TYPE,
+  dbport: process.env.DB_PORT,
 };
 
 export function getPort() {

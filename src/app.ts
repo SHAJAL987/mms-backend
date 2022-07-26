@@ -3,12 +3,7 @@ import express, { Request, Response } from 'express';
 // import configureRoutes from '@config/routes.config';
 import errorHandler from '@middlewares/error-handler.middle';
 
-/********************** ORM Connection *******************************/
-
-/********************** ORM Connection *******************************/
-
 const app: express.Application = express();
-
 app.use(express.json({ limit: '50mb' }));
 
 /**
