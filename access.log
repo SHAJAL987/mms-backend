@@ -1,0 +1,3 @@
+::1 - - [02/Aug/2022:15:26:38 +0000] "POST /mmsys/v1/testConnection HTTP/1.1" 200 31 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [02/Aug/2022:17:47:26 +0000] "POST /mmsys/v1/init-app HTTP/1.1" 200 48 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [02/Aug/2022:17:48:40 +0000] "POST /mmsys/v1/init-app HTTP/1.1" 200 48 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"

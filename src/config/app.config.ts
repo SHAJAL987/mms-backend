@@ -31,3 +31,12 @@ export function getInitSettings() {
 export function getUserIdCase() {
   return process.env.USER_ID_CASE || 'UPPER';
 }
+
+export function getInitAppUrl() {
+  const initSysapp = process.env.INIT_SYSTEM_MODULE;
+  const initMealSysapp = process.env.INIT_MEAL_MODULE;
+  return {
+    initSysapp: initSysapp,
+    initMealSysapp: initMealSysapp,
+  };
+}

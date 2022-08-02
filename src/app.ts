@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
-// import configureExpress from '@config/express.config';
-// import configureRoutes from '@config/routes.config';
+import configureExpress from '@config/express.config';
+import configureRoutes from '@config/routes.config';
 import errorHandler from '@middlewares/error-handler.middle';
 
 const app: express.Application = express();
@@ -9,12 +9,12 @@ app.use(express.json({ limit: '50mb' }));
 /**
  * Express configuration
  */
-// configureExpress(app);
+configureExpress(app);
 
 /**
  * Registering Modules
  */
-// configureRoutes(app);
+configureRoutes(app);
 
 /**
  * Health of API
