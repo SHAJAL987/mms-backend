@@ -29,6 +29,6 @@
     "moduleResolution": "node",
     "sourceMap": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/config/ormconfig.js"],
   "exclude": ["node_modules"]
 }

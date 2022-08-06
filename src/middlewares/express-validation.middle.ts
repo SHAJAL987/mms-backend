@@ -4,7 +4,7 @@ import BadRequestError from '@errors/bad-request.error';
 import { RequestValidationError } from '@errors/request-validation.error';
 import lo from 'lodash';
 
-export function validates(validators: ValidationChain[], allowExtraFields = false) {
+export function validates(validators: ValidationChain[], allowExtraFields = true) {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       if (!allowExtraFields) {
