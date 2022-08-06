@@ -10,14 +10,14 @@ router.post(
   '/role-scope',
   [validates(roleScopeValidation)],
   wrap(async (req: Request, res: Response, next: NextFunction) => {
-    const { roleScopeCode, scodeName, isVisible, status, createBy } = req.body;
+    const { role_scope_code, scope_name, is_visible, status, create_by } = req.body;
 
     const response = {
-      roleScopeCode: roleScopeCode,
-      scopeName: scodeName,
-      isVisible: isVisible,
+      role_scope_code: role_scope_code,
+      scope_name: scope_name,
+      is_visible: is_visible,
       status: status,
-      createBy: createBy,
+      create_by: create_by,
     };
 
     res.json({
