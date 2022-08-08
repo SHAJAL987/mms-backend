@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign*/
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity()
-export class MMS_APP {
+@Entity('MMS_APP')
+export class AppSettings {
   //Primarykey
   @PrimaryGeneratedColumn()
   id!: number;

@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity()
-export class MMS_FEATURE {
+@Entity('MMS_FEATURE')
+export class Feature {
   @PrimaryGeneratedColumn()
   id!: string;
 
