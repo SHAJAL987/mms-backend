@@ -3,28 +3,42 @@ import express, { Router, Request, Response, NextFunction } from 'express';
 import { wrap } from '../middlewares/wrap.middle';
 import { roleScopeValidation } from '@validators/role-scope.validator';
 import { validates } from '@middlewares/express-validation.middle';
+import UserService from 'service/user.service';
+import Container from 'typedi';
+import { RoleScope } from '@database/entity/user-management/mms_user_role_scope.entity';
 
 const router: Router = express.Router();
 
+/********************************* MMS_USER_ROLE_SCOPE ********************************************/
 router.post(
   '/role-scope',
   [validates(roleScopeValidation)],
   wrap(async (req: Request, res: Response, next: NextFunction) => {
-    const { role_scope_code, scope_name, is_visible, status, create_by } = req.body;
+    const userService: UserService = Container.get(UserService);
 
-    const response = {
-      role_scope_code: role_scope_code,
-      scope_name: scope_name,
-      is_visible: is_visible,
-      status: status,
-      create_by: create_by,
-    };
+    const roleScope: RoleScope = await userService.create({
+      ...req.body,
+    });
 
     res.json({
-      message: 'Operation SuccessFull',
-      res: response,
+      message: 'Operation Successfull.',
+      res: roleScope,
     });
   }),
 );
 
+router.get(
+  '/get-role-scope',
+  [],
+  wrap(async (req: Request, res: Response, next: NextFunction) => {
+    const userService: UserService = Container.get(UserService);
+
+    const getRoleScope: RoleScope[] = await userService.get();
+
+    res.json({
+      message: 'Operation Successfull.',
+      res: getRoleScope,
+    });
+  }),
+);
 export default router;

@@ -9,7 +9,9 @@
       "@types/*": ["types/*"],
       "@utils/*": ["utils/*"],
       "@validators/*": ["validators/*"],
-      "@errors/*": ["errors/*"]
+      "@errors/*": ["errors/*"],
+      "@database/*": ["database/*"],
+      "@global/*": ["global/*"]
     },
     "typeRoots": ["node", "express", "@types", "./node_modules/@types"],
     "outDir": "./dist",
@@ -29,6 +31,6 @@
     "moduleResolution": "node",
     "sourceMap": true
   },
-  "include": ["src/**/*.ts", "src/config/ormconfig.js"],
+  "include": ["src/**/*.ts", "src/config/ormconfig.js", "@types/express/index.d.ts"],
   "exclude": ["node_modules"]
 }

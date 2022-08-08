@@ -71,12 +71,12 @@ const nodeEnv = process.env.NODE_ENV || 'prod';
 let Crossenv;
 if (nodeEnv === 'dev') {
   Crossenv = {
-    entities: [process.cwd() + '/src/entity/**/*.entity.ts'],
+    entities: [process.cwd() + '/src/database/entity/**/*.entity.ts'],
     synchronize: true,
   };
 } else {
   Crossenv = {
-    entities: [process.cwd() + '/dist/entity/**/*.entity.js'],
+    entities: [process.cwd() + '/dist/database/entity/**/*.entity.js'],
     synchronize: false,
   };
 }

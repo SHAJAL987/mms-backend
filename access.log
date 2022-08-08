@@ -29,3 +29,8 @@
 ::1 - - [06/Aug/2022:15:06:01 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 200 133 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 ::1 - - [06/Aug/2022:15:06:19 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 400 106 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
 ::1 - - [06/Aug/2022:15:06:28 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 200 133 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"
+::1 - - [08/Aug/2022:06:42:01 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 200 145 "-" "PostmanRuntime/7.29.2"
+::1 - - [08/Aug/2022:08:50:04 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 500 123 "-" "PostmanRuntime/7.29.2"
+::1 - - [08/Aug/2022:09:04:17 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 200 250 "-" "PostmanRuntime/7.29.2"
+::1 - - [08/Aug/2022:09:09:11 +0000] "POST /mmsys/v1/role-scope HTTP/1.1" 400 117 "-" "PostmanRuntime/7.29.2"
+::1 - - [08/Aug/2022:09:35:33 +0000] "GET /user/v1/get-role-scope HTTP/1.1" 200 253 "-" "PostmanRuntime/7.29.2"

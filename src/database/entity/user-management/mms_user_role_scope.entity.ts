@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity()
-export class MMS_USER_ROLE_SCOPE {
+@Entity('MMS_USER_ROLE_SCOPE')
+export class RoleScope {
   @PrimaryGeneratedColumn()
   id!: number;
 
