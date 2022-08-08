@@ -45,7 +45,7 @@ router.post(
   }),
 );
 
-//update RoleScope
+//update RoleScope by Id
 router.put(
   '/role-scope/:id',
   [validates(UpdateRoleScopeValidation)],
@@ -54,8 +54,25 @@ router.put(
     const roleScope: RoleScope | null = await userService.update(req.params.id, req.body);
 
     return res.json({
-      message: 'Operation successfull.',
+      message: 'Operation Successfull.',
       res: roleScope,
+    });
+  }),
+);
+
+//delete RoleScope by Id
+router.delete(
+  '/role-scope-delete/:id',
+  [],
+  wrap(async (req: Request<{ id: number }>, res: Response, next: NextFunction) => {
+    const userService: UserService = Container.get(UserService);
+    const roleScope: number = await userService.delete(req.params.id);
+
+    return res.json({
+      message: 'Operation Successfull.',
+      res: {
+        id: roleScope,
+      },
     });
   }),
 );

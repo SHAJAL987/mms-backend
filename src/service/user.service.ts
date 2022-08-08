@@ -29,7 +29,7 @@ export default class UserService implements BaseService {
     return newRoleScope;
   }
 
-  //update RoleScope
+  //update RoleScope by Id
   async update(id: number, data: IUpdateRoleScope, tem?: EntityManager): Promise<RoleScope | null> {
     return await connectionPool
       .createQueryBuilder()
@@ -43,5 +43,11 @@ export default class UserService implements BaseService {
       .then((response) => {
         return response.raw[0];
       });
+  }
+
+  //delete RoleScope by Id
+  async delete(id: number, tem?: EntityManager): Promise<number> {
+    await connectionPool.getRepository(RoleScope).delete(id);
+    return id;
   }
 }
