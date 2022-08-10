@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Group } from './mms_group.entity';
 
 @Entity('MMS_USER_ROLE_SCOPE')
 export class RoleScope {
@@ -47,4 +48,7 @@ export class RoleScope {
 
   @UpdateDateColumn()
   update_date!: Date;
+
+  @OneToMany(() => Group, (group) => group.id)
+  group!: Group;
 }
