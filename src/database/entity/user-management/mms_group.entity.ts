@@ -3,10 +3,12 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { User } from './mms_user.entity';
 import { RoleScope } from './mms_user_role_scope.entity';
 
 @Entity('MMS_GROUP_MST')
@@ -70,4 +72,7 @@ export class Group {
     name: 'role_scope_id',
   })
   roleScope!: RoleScope[];
+
+  @ManyToMany(() => User, (user) => user.groups)
+  user!: User;
 }

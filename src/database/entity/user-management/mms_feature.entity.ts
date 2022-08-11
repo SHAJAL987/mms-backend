@@ -1,4 +1,13 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { AppSettings } from './mms_app.entity';
 
 @Entity('MMS_FEATURE')
 export class Feature {
@@ -9,22 +18,31 @@ export class Feature {
     nullable: true,
     length: 255,
   })
-  feature_name!: string;
+  feature_desc!: string;
 
   @Column({
     nullable: true,
   })
-  parent_id!: number;
+  feature_serial!: number;
 
   @Column({
     nullable: true,
-  })
-  isParent!: boolean;
-
-  @Column({
-    nullable: false,
   })
   feature_level!: number;
+
+  @Column({
+    nullable: true,
+  })
+  feature_leaf!: string;
+
+  @Column()
+  partent_id!: number;
+
+  @Column({
+    type: 'char',
+    length: 1,
+  })
+  app_flag!: string;
 
   @Column()
   route!: string;
@@ -56,4 +74,10 @@ export class Feature {
     nullable: true,
   })
   updateDate!: Date;
+
+  @ManyToOne(() => AppSettings, (app) => app.features)
+  @JoinColumn({
+    name: 'app_code',
+  })
+  app!: AppSettings;
 }

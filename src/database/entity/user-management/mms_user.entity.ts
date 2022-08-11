@@ -1,4 +1,14 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { AppSettings } from './mms_app.entity';
+import { Group } from './mms_group.entity';
 
 @Entity('MMS_USER_MST')
 export class User {
@@ -71,4 +81,36 @@ export class User {
     type: Date,
   })
   approve_date!: Date;
+
+  @ManyToMany(() => Group, (group) => group.user, {
+    cascade: true,
+  })
+  @JoinTable({
+    name: 'MMS_USER_GRP',
+    joinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'group_id',
+      referencedColumnName: 'id',
+    },
+  })
+  groups!: Group[];
+
+  @ManyToMany(() => AppSettings, (app) => app.user, {
+    cascade: true,
+  })
+  @JoinTable({
+    name: 'MMS_USER_APPLICATION',
+    joinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'app_code',
+      referencedColumnName: 'app_code',
+    },
+  })
+  apps!: AppSettings[];
 }

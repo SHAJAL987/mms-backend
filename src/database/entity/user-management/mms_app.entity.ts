@@ -1,5 +1,15 @@
 /* eslint-disable no-param-reassign*/
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToMany,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Feature } from './mms_feature.entity';
+import { User } from './mms_user.entity';
 
 @Entity('MMS_APPLICATION_INFO')
 export class AppSettings {
@@ -10,12 +20,13 @@ export class AppSettings {
   @Column({
     length: 5,
     nullable: true,
+    unique: true,
   })
   app_id!: string;
 
   @Column({
-    length: 3,
     nullable: true,
+    unique: true,
   })
   app_code!: string;
 
@@ -74,4 +85,10 @@ export class AppSettings {
     nullable: true,
   })
   update_date!: Date;
+
+  @ManyToMany(() => User, (user) => user.apps)
+  user!: User;
+
+  @OneToMany(() => Feature, (feature) => feature.id)
+  features!: Feature;
 }
