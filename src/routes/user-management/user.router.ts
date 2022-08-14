@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Router, Request, Response, NextFunction } from 'express';
-import { wrap } from '../middlewares/wrap.middle';
+import { wrap } from '../../middlewares/wrap.middle';
 import { CrateRoleScopeValidation, UpdateRoleScopeValidation } from '@validators/user-management/role-scope.validator';
 import { validates } from '@middlewares/express-validation.middle';
-import UserService from 'service/user.service';
+import UserService from 'service/user-management/role-scope.service';
 import Container from 'typedi';
 import { RoleScope } from '@database/entity/user-management/mms_user_role_scope.entity';
 import { userCerationValidation } from '@validators/user-management/user.validator';

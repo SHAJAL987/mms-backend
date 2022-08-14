@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { RoleScope } from '@database/entity/user-management/mms_user_role_scope.entity';
 import BaseService from '@global/base.interface';
-import { ICreateRoleScope, IUpdateRoleScope } from '../types/user-management/role-scope.interface';
+import { ICreateRoleScope, IUpdateRoleScope } from '../../types/user-management/role-scope.interface';
 import { Service } from 'typedi';
 import { EntityManager } from 'typeorm';
 import { connectionPool } from '@config/ormconfig';
@@ -50,6 +50,4 @@ export default class UserService implements BaseService {
     await connectionPool.getRepository(RoleScope).delete(id);
     return id;
   }
-
-  /********************************* MMS_USER_MST ********************************************/
 }
