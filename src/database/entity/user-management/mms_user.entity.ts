@@ -31,7 +31,7 @@ export class User {
   email!: string;
 
   @Column({
-    length: 11,
+    length: 20,
   })
   mobile_no!: string;
 

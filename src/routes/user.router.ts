@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Router, Request, Response, NextFunction } from 'express';
 import { wrap } from '../middlewares/wrap.middle';
-import { CrateRoleScopeValidation, UpdateRoleScopeValidation } from '@validators/role-scope.validator';
+import { CrateRoleScopeValidation, UpdateRoleScopeValidation } from '@validators/user-management/role-scope.validator';
 import { validates } from '@middlewares/express-validation.middle';
 import UserService from 'service/user.service';
 import Container from 'typedi';
 import { RoleScope } from '@database/entity/user-management/mms_user_role_scope.entity';
+import { userCerationValidation } from '@validators/user-management/user.validator';
 
 const router: Router = express.Router();
 
@@ -73,6 +74,19 @@ router.delete(
       res: {
         id: roleScope,
       },
+    });
+  }),
+);
+
+/********************************* MMS_USER_MST ********************************************/
+//Create User
+router.post(
+  '/add-user',
+  [validates(userCerationValidation)],
+  wrap(async (req: Request, res: Response, next: NextFunction) => {
+    return res.json({
+      message: 'Operation Successfull.',
+      res: req.body,
     });
   }),
 );

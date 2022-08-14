@@ -1,4 +1,4 @@
-/*Entity: MMS_USER_ROLE_SCOPE */
+/*Interface For : MMS_USER_ROLE_SCOPE */
 export interface ICreateRoleScope {
   role_scope_code: string;
   scope_name: string;
