@@ -59,3 +59,4 @@
 ::1 - - [14/Aug/2022:07:09:18 +0000] "POST /user/v1/add-user HTTP/1.1" 200 196 "-" "PostmanRuntime/7.29.2"
 ::1 - - [14/Aug/2022:07:15:18 +0000] "POST /user/v1/add-user HTTP/1.1" 200 209 "-" "PostmanRuntime/7.29.2"
 ::1 - - [14/Aug/2022:07:35:55 +0000] "GET /user/v1/get-role-scope HTTP/1.1" 200 467 "-" "PostmanRuntime/7.29.2"
+::1 - - [14/Aug/2022:07:44:11 +0000] "POST /user/v1/add-user HTTP/1.1" 200 209 "-" "PostmanRuntime/7.29.2"
