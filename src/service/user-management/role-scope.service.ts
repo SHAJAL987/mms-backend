@@ -8,7 +8,7 @@ import { EntityManager } from 'typeorm';
 import { connectionPool } from '@config/ormconfig';
 
 @Service()
-export default class UserService implements BaseService {
+export default class RoleScopeService implements BaseService {
   constructor() {}
 
   /********************************* MMS_USER_ROLE_SCOPE ********************************************/
