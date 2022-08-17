@@ -9,6 +9,7 @@ import { RoleScope } from '@database/entity/user-management/mms_user_role_scope.
 import { userCerationValidation } from '@validators/user-management/user-creation.validator';
 import { User } from '@database/entity/user-management/mms_user.entity';
 import UserCreationService from 'service/user-management/user-creation.service';
+import { token } from '@utils/generateToken.utils';
 
 const router: Router = express.Router();
 
@@ -101,9 +102,39 @@ router.post(
   '/add-user',
   [validates(userCerationValidation)],
   wrap(async (req: Request, res: Response, next: NextFunction) => {
+    const userService: UserCreationService = Container.get(UserCreationService);
+
+    const user: User = await userService.create({
+      ...req.body,
+    });
+
+    const response = {
+      userId: user.user_code,
+      userName: user.user_name,
+      userType: user.user_type,
+    };
+
     return res.json({
       message: 'Operation Successfull.',
-      res: req.body,
+      res: response,
+    });
+  }),
+);
+
+//user login
+router.post(
+  '/login-user',
+  [],
+  wrap(async (req: Request, res: Response, next: NextFunction) => {
+    const data = {
+      name: 'shajal',
+      degin: 'Assn.',
+    };
+
+    token(data);
+    return res.json({
+      message: 'Operation Successfull.',
+      res: 'test',
     });
   }),
 );

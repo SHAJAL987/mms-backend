@@ -1,12 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  JoinTable,
-  ManyToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { AppSettings } from './mms_app.entity';
 import { Group } from './mms_group.entity';
 
@@ -60,27 +52,6 @@ export class User {
   // create date
   @CreateDateColumn()
   create_date!: Date;
-
-  @Column({
-    length: 50,
-  })
-  update_by!: string;
-
-  // update date
-  @UpdateDateColumn({
-    nullable: true,
-  })
-  update_date!: Date;
-
-  @Column({
-    length: 50,
-  })
-  approve_by!: string;
-
-  @Column({
-    type: Date,
-  })
-  approve_date!: Date;
 
   @ManyToMany(() => Group, (group) => group.user, {
     cascade: true,
