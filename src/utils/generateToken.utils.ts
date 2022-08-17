@@ -2,5 +2,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 export function token(tokenObj: Object) {
-  console.log(tokenObj);
+  return tokenObj;
 }
