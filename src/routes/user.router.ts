@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Router, Request, Response, NextFunction } from 'express';
 import { wrap } from '../middlewares/wrap.middle';
@@ -8,8 +9,8 @@ import Container from 'typedi';
 import { RoleScope } from '@database/entity/user-management/mms_user_role_scope.entity';
 import { userCerationValidation } from '@validators/user-management/user-creation.validator';
 import { User } from '@database/entity/user-management/mms_user.entity';
-import UserCreationService from 'service/user-management/user-creation.service';
-import { token } from '@utils/generateToken.utils';
+import UserCreationService, { getUserWithPasswordAndRole } from 'service/user-management/user-creation.service';
+// import { token } from '@utils/generateToken.utils';
 
 const router: Router = express.Router();
 
@@ -126,15 +127,22 @@ router.post(
   '/login-user',
   [],
   wrap(async (req: Request, res: Response, next: NextFunction) => {
-    const data = {
-      name: 'shajal',
-      degin: 'Assn.',
-    };
+    console.log('Shajal ------->');
 
-    token(data);
+    const user: any = await getUserWithPasswordAndRole(req.body.user_code);
+
+    console.log('Shajal ------->', user);
+
+    // const genTokenObj = {
+    //   title: 'shajal',
+    //   degin: 'Assn.',
+    // };
+
+    //const tokenGen = token(genTokenObj)
+
     return res.json({
       message: 'Operation Successfull.',
-      res: 'test',
+      res: user,
     });
   }),
 );

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { connectionPool } from '@config/ormconfig';
@@ -35,4 +36,21 @@ export default class UserCreationService implements BaseService {
     const user: User = await connectionPool.getRepository(User).save(newUser);
     return user;
   }
+}
+export async function getUserWithPasswordAndRole(userCode: string): Promise<Object> {
+  // const userCodeWhereQuery = 'user.user_code = :userCode';
+
+  const result: any = await connectionPool
+    .createQueryBuilder(User, 'user')
+    .addSelect('user.password')
+    .where('user.user_code = 002145', { user_code: '002145' })
+    .getOne();
+  // const resultOne: any = await connectionPool
+  //   .createQueryBuilder(User, 'MMS_USER_MST')
+  //   .where('MMS_USER_MST.user_code = :userCode', { user_code: userCode })
+  //   .getOne();
+
+  // console.log(resultOne);
+
+  return result;
 }

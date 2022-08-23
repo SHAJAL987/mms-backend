@@ -6,3 +6,9 @@ export function hassPass(password: string) {
 
   return hashPass;
 }
+
+export function comparePass(inputPass: string, storedPass: string) {
+  const isPassValid = bcrypt.compare(inputPass, storedPass);
+
+  return isPassValid;
+}
